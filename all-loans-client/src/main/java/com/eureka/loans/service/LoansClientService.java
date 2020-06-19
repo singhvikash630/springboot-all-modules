@@ -19,17 +19,9 @@ public class LoansClientService {
 	@Value("${homeloan.get.url}")
 	private String homeLoanUrl;
 
-	@Value("${carloan.get.url}")
-	private String carLoanUrl;
-
-	@Value("${businessloan.get.url}")
-	private String businessLoanUrl;
-
 	public List<LoanType> getLoans() {
 		LoanType homeLoan = restTemplate.getForObject(homeLoanUrl, LoanType.class);
-		LoanType carloan = restTemplate.getForObject(carLoanUrl, LoanType.class);
-		LoanType businessloan = restTemplate.getForObject(businessLoanUrl, LoanType.class);
-		return Arrays.asList(homeLoan, carloan, businessloan);
+		return Arrays.asList(homeLoan);
 	}
 
 }
